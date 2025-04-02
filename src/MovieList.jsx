@@ -1,22 +1,26 @@
 import { useState, useEffect } from "react";
-import moviesData from "./movies.json";
+import { fetchPopularMovies, IMAGE_BASE_URL } from "./ApiFuncs"; // Import API functions
 import Card from "./Card";
-import Images from "./Images";
 
-function MovieList(){
-    const[movies, setMovies] = useState([]);
+function MovieList() {
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        setMovies(moviesData);    
+        fetchPopularMovies().then(setMovies);
     }, []);
 
-    return(
+    return (
         <div>
             {movies.map((movie) => (
-                <Card key={movie.id} title={movie.title} desc={movie.desc} img={Images[movie.imgKey]} />
+                <Card 
+                    key={movie.id} 
+                    title={movie.title} 
+                    desc={movie.tagline} // TMDB uses "overview" instead of "desc"
+                    img={`${IMAGE_BASE_URL}${movie.poster_path}`} // Get full image URL
+                />
             ))}
         </div>
-    )
+    );
 }
 
 export default MovieList;
