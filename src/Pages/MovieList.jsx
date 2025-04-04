@@ -17,7 +17,7 @@ export function MovieList() {
     
     return (
         <div>
-            <Header title="The Movie Website" listUpdateFunction={setListType}/>
+            <Header title="FilmPaglu" listUpdateFunction={setListType}/>
             {movies.map((movie) => (
                 <Card 
                     id={movie.id}
