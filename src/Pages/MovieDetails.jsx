@@ -5,8 +5,8 @@ import { IMAGE_BASE_URL } from '../ApiFuncs';
 
 export function MovieDetails(){
     const { id } = useParams();
-  const [movie, setMovie] = useState(null);
-  const API_KEY = import.meta.env.VITE_APP_TMDB_API_KEY;
+    const [movie, setMovie] = useState(null);
+    const API_KEY = import.meta.env.VITE_APP_TMDB_API_KEY;
 
     useEffect(() => {
         async function fetchMovie() {

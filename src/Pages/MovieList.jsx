@@ -1,20 +1,23 @@
 import { useState, useEffect } from "react";
-import { fetchPopularMovies, IMAGE_BASE_URL } from "../ApiFuncs"; // Import API functions
+import { fetchCurrentList, IMAGE_BASE_URL } from "../ApiFuncs"; // Import API functions
 import Card from "../Card";
 import Header from "../Header";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 export function MovieList() {
     const [movies, setMovies] = useState([]);
+    const [listType, setListType] = useState("top_rated");
 
     useEffect(() => {
-        fetchPopularMovies().then(setMovies);
-    }, []);
+        if(listType){
+            fetchCurrentList(listType).then(setMovies);
+        }
+    }, [listType]);
 
     
     return (
         <div>
-            <Header title="The Website"/>
+            <Header title="The Movie Website" listUpdateFunction={setListType}/>
             {movies.map((movie) => (
                 <Card 
                     id={movie.id}
