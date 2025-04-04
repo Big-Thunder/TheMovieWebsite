@@ -2,7 +2,7 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
 
-  background-color: rgb(10, 10, 10);
+  background-color: rgb(0, 0, 0);
   color:white;
 }
 
@@ -13,61 +13,82 @@ body{
   justify-content: center;
   align-items: center;
   font-size: 75px;
-  background-image: linear-gradient(rgba(70, 196, 255, 0.45), rgba(0, 0, 0, 0));
+  background-color: none;
+  /* background-image: linear-gradient(rgba(70, 196, 255, 0.45), rgba(0, 0, 0, 0)); */
 }
 
 .card-div{
-  background-color: black;
+  background-color: rgb(10, 10, 10);
   color: white;
   width: 250px;
   height: 400px;
   max-width: 250px;
   text-align: center;
   border: 0 0 0 red;
+  box-shadow: 0px 0px 0px rgb(255, 255, 255);
   border-radius: 25px;
   display: inline-block;
   margin: 25px;
+  transition-duration: 0.15s;
+}
+
+.card-div:hover{
+  box-shadow: -0.1px 0px 10px rgb(161, 161, 161);
+  transition-duration: 0.15s;
 }
 
 .card-img{
   width: 100%;
   height: 60%;
-  border: 0 0 0 red;
+  border: 0 0 red;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   object-fit: cover;
-  margin: 10px 0;
-
-  filter: grayscale(80%);
-  transition: filter 0.5s ease-in-out;
-}
-
-.card-div:hover .card-img{
-  filter: grayscale(0%);  
-  transition: filter 0.1s ease-in-out;
 }
 
 .card-title{
-  font-size: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  /* background-color: red; */
+  height: 80px;
+  font-size: 22px;
+  margin: 5px;
 }
 
 .card-desc{
+  /* background-color: red; */
   font-size: 15px;
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 50%;
 }
 
-.card-desc-text {
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit text to 3 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  white-space: normal;
-  line-height: 1.4; /* Adjust for better spacing */
-  max-height: 4.2em; /* Ensures proper cutoff */
+.details-backdrop{
+  height: 97vh;
+  width: 99vw;
+  display: flex;
+  filter: brightness(60%);
+}
+
+.details-info-div {
+  position: fixed;
+  top: 50px; /* or wherever you want it */
+  left: 50px; /* adjust as needed */
+  z-index: 2;
+  padding: 2vh 3vw;
+  display: inline-block;
+  text-align: left;
+  border-radius: 10px;
+  max-width: 40vw; /* optional: to avoid overflowing the screen */
+}
+
+
+
+.details-name{
+  font-size: 4vw;
+  line-height: 100%;
+}
+
+.details-release-date{
+  font-size: 0.8vw;
+  margin-top: 20px;
 }

@@ -1,34 +1,20 @@
 import { useState } from 'react';
-
-import Images from './Images.js' 
-import Card from './Card.jsx'
-import Header from './Header.jsx'
-import MovieList from './MovieList.jsx'
+import Header from './Header.jsx';
+import {MovieList} from './Pages/MovieList.jsx';
+import {MovieDetails} from './Pages/MovieDetails.jsx';
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 
 function App(){
-
-  const [isDirPage, setPage] = useState(true);
-  const [headerTitle, setHeaderTitle] = useState("Website Name");
-
-
-  const updateHeaderTitle = (title) => {
-    setHeaderTitle(title);
-  }
-
-
-  const updatePage = (thing, nextHeaderTitle) => {
-    console.log(thing);
-    
-    setPage(thing);
-    updateHeaderTitle(nextHeaderTitle);
-  }
-
   return(
     <>
-      <Header title={headerTitle}/>
-      <MovieList/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<MovieList />}/>
+          <Route path="/movie/:id" element={<MovieDetails />}/>
+        </Routes>
+      </Router>
     </>
   );
 }
