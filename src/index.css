@@ -155,3 +155,60 @@ body{
   font-size: 0.8vi;
   margin-top: 20px;
 }
+
+
+@media screen and (max-width: 768px) {
+  .header-title {
+    font-size: 8vw;
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 100%;
+    padding: 20px;
+  }
+
+  .header-button-div {
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .header-button {
+    width: 80vw;
+    font-size: 5vw;
+    margin: 6px 0;
+  }
+
+  .card-div {
+    width: 90vw;
+    height: auto;
+    margin: 15px auto;
+  }
+
+  .card-title {
+    font-size: 5vw;
+    height: auto;
+  }
+
+  .card-desc {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 4vw;
+  }
+
+  .details-info-div {
+    top: 20px;
+    left: 10px;
+    max-width: 90vw;
+    padding: 2vh 4vw;
+  }
+
+  .details-name {
+    font-size: 8vw;
+  }
+
+  .details-release-date,
+  .details-desc {
+    font-size: 4vw;
+  }
+}
