@@ -30,10 +30,10 @@ export const fetchPopularMovies = async () => {
   }
 };
 
-export const fetchCurrentList = async(list) => {
+export const fetchCurrentList = async(list, page) => {
   try {
     const response = await axios.get(`${BASE_URL}/movie/${list}`, {
-      params: { api_key: API_KEY },
+      params: { api_key: API_KEY, page: page },
     });
     return response.data.results;
   } catch (error) {

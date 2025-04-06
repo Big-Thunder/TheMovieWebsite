@@ -6,18 +6,34 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 export function MovieList() {
     const [movies, setMovies] = useState([]);
-    const [listType, setListType] = useState("top_rated");
+    const [listType, setListType] = useState("popular");
+    const [pageNo, setPage] = useState(1);
+    
+    useEffect(() => {
+        // Reset list and page when list type changes
+        setMovies([]);
+        setPage(1);
+      }, [listType]);
 
     useEffect(() => {
-        if(listType){
-            fetchCurrentList(listType).then(setMovies);
-        }
-    }, [listType]);
+           fetchCurrentList(listType, pageNo).then((newList) => {setMovies((prev) => [...prev, ...newList]);});
+    }, [listType, pageNo]);
+
+    useEffect(() => {
+        const scrollThing = () => {
+            if(window.scrollY + innerHeight >= document.documentElement.scrollHeight){
+                setPage((thePage) => thePage + 1);
+            }
+        };
+
+        window.addEventListener("scroll", scrollThing);
+
+    }, []);
 
     
     return (
         <div>
-            <Header title="FilmPaglu" listUpdateFunction={setListType}/>
+            <Header title="FilmPaglu" listUpdateFunction={setListType} currentListType={listType}/>
             {movies.map((movie) => (
                 <Card 
                     id={movie.id}
