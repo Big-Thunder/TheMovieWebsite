@@ -16,7 +16,7 @@ export function MovieList() {
       }, [listType]);
 
     useEffect(() => {
-           fetchCurrentList(listType, pageNo).then((newList) => {setMovies((prev) => [...prev, ...newList]);});
+           fetchCurrentList(listType, pageNo).then((newList) => {setMovies((prev) => pageNo === 1 ? newList : [...prev, ...newList]);});
     }, [listType, pageNo]);
 
     useEffect(() => {

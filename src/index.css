@@ -19,6 +19,7 @@ body{
   justify-content: center;
   text-align: center;
   font-size: 12vi;
+  font-weight: 300;
   background-color: none;
   /* background-image: linear-gradient(rgba(70, 196, 255, 0.45), rgba(0, 0, 0, 0)); */
 }
@@ -49,16 +50,16 @@ body{
   color: rgb(141, 141, 141); */
 
   border-radius: 22px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4vi;
-    background-color: transparent;
-    border: 0px solid transparent;
-    margin: 2px;
-    color: white;
-    cursor: pointer;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4vi;
+  background-color: transparent;
+  border: 0px solid transparent;
+  margin: 2px;
+  color: white;
+  cursor: pointer;
   transition:         all 0.5s ease;
 }
 
@@ -73,50 +74,50 @@ body{
 }
 
 .card-div{
-  font-family: "Roboto Condensed";
-
-  background-color: rgb(10, 10, 10);
-  color: white;
-  width: 250px;
-  height: 400px;
-  max-width: 250px;
-  text-align: center;
-  border: 0 0 0 red;
-  box-shadow: 0px 0px 0px rgb(32, 32, 32);
-  border-radius: 25px;
-  display: inline-block;
-  margin: 25px;
-  transition-duration: 0.15s;
-}
-
-.card-div:hover{
-  box-shadow: -0.1px 0px 0px 3px rgb(32, 32, 32);
-  transition-duration: 0.15s;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  width: 10vi;
+  border: 0 solid red;
+  border-radius: 10px;
+  margin: 1.2vi;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-img{
   width: 100%;
-  height: 60%;
-  border: 0 0 red;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  object-fit: cover;
+  border: 0px solid red;
+  border-radius: 10px;
+  display: block;
 }
 
-.card-title{
-  /* background-color: red; */
-  height: 80px;
-  font-size: 22px;
-  margin: 5px;
+.card-details{
+  position: absolute;
+  z-index: 1;
+  margin: 0;
+  font-size: 0.8vi;
+  font-weight: 200;
+  width: 100%;
+  height: 100%;
+  border: 0 solid red;
+  border-radius: 10px;
+  
+  
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 0, 0, 0);
+  transition-duration: 0.25s;
 }
 
-.card-desc{
-  /* background-color: red; */
-  font-size: 15px;
-  margin: 10px;
-  display: flex;
-  flex-direction: row;
-  gap: 50%;
+.card-div:hover .card-details{
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.7);
+  transition-duration: 0.25s;
+}
+
+.card-div:hover .card-img{
+  filter: blur(4px);
+  transition-duration: 0.25s;
 }
 
 .details-backdrop{
@@ -143,72 +144,36 @@ body{
 
 .details-name{
   font-size: 4vw;
-  line-height: 100%;
 }
 
 .details-release-date{
   font-size: 0.8vi;
-  margin-top: 20px;
+  margin-top: 1.2vi;
+  font-weight: 200;
+
+  font-size:calc(2px + 0.8vi);
 }
 
 .details-desc{
   font-size: 0.8vi;
-  margin-top: 20px;
+  margin-top: 1.2vi;
+  font-weight: 200;
+
+  font-size:calc(2px + 0.8vi);
 }
 
+.details-rating{
+  font-size: 0.8vi;
+  margin-top: 1.2vi;
+  margin-left: 1.2vi;
+  display: inline;
+  font-weight: 200;
 
-@media screen and (max-width: 768px) {
-  .header-title {
-    font-size: 8vw;
-    flex-wrap: wrap;
-    text-align: center;
-    line-height: 100%;
-    padding: 20px;
-  }
+  font-size:calc(2px + 0.8vi);
+}
 
-  .header-button-div {
-    flex-direction: column;
-    align-items: center;
-    width: 90vw;
-    margin: 0 auto;
-  }
-
-  .header-button {
-    width: 80vw;
-    font-size: 5vw;
-    margin: 6px 0;
-  }
-
-  .card-div {
-    width: 90vw;
-    height: auto;
-    margin: 15px auto;
-  }
-
-  .card-title {
-    font-size: 5vw;
-    height: auto;
-  }
-
-  .card-desc {
-    flex-direction: column;
-    gap: 10px;
-    font-size: 4vw;
-  }
-
-  .details-info-div {
-    top: 20px;
-    left: 10px;
-    max-width: 90vw;
-    padding: 2vh 4vw;
-  }
-
-  .details-name {
-    font-size: 8vw;
-  }
-
-  .details-release-date,
-  .details-desc {
-    font-size: 4vw;
-  }
+.rating-img{
+ max-width: 0.8vi;
+ max-height: 0.8vi;
+ margin-right: 4px;
 }
