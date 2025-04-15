@@ -1,126 +1,98 @@
-
-
-body{
+body {
   font-family: "Roboto", sans-serif;
   text-align: center;
-
   background-color: rgb(0, 0, 0);
-  color:white;
+  color: white;
 }
 
-.header-div{
+.header-div {
   background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8)), url(./assets/movie_collage.png);
+  background-size: cover;
 }
 
-.header-title{
+.header-title {
   height: 30vh;
-  margin: 0px;
+  min-height: 200px;
+  margin: 0;
   display: flex;
   justify-content: center;
-  text-align: center;
-  font-size: 12vi;
+  align-items: center;
+  font-size: clamp(2.5rem, 12vw, 8rem);
   font-weight: 300;
-  background-color: none;
-  /* background-image: linear-gradient(rgba(70, 196, 255, 0.45), rgba(0, 0, 0, 0)); */
 }
 
-.header-button-div{
-
+.header-button-div {
   background: rgb(0, 0, 0);
-    box-shadow: inset 0px 0px 0px 1px rgb(255, 255, 255);
-    border-radius: 24px;
-    display: inline-block;
-    overflow: hidden;
-    display: inline-flex;
-    flex-direction: row;
-  transition: all 500ms ease; 
+  box-shadow: inset 0 0 0 1px rgb(255, 255, 255);
+  border-radius: 24px;
+  display: inline-flex;
+  flex-direction: row;
+  transition: all 500ms ease;
 }
 
-
-.header-button{
-  /* background-color: rgba(0, 0, 0, 0);
-  border: 0px;
-  padding: 0.5vi;
-  padding-left: 0px;
-  padding-right: 0px;
-  font-size: 1.5vi;
-  border-radius: 10vi;
-  margin-left: 1vi;
-  margin-right: 1vi;
-  color: rgb(141, 141, 141); */
-
+.header-button {
   border-radius: 22px;
   height: 44px;
+  width: 88px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4vi;
   background-color: transparent;
-  border: 0px solid transparent;
+  border: 0;
   margin: 2px;
   color: white;
   cursor: pointer;
-  transition:         all 0.5s ease;
+  transition: all 0.5s ease;
+  font-size: 1rem;
 }
 
-.header-button:hover{
-  color: white;
-}
-
-.header-button.active{
+.header-button.active {
+  box-shadow: inset 0 0 1px 100px rgb(255, 255, 255);
   color: black;
-  /* border: solid 1px red; */
-  box-shadow: inset 0px 0px 1px 100px rgb(255, 255, 255);
 }
 
-.card-div{
+.card-div {
   position: relative;
-  background-color: rgb(255, 255, 255);
-  width: 10vi;
-  border: 0 solid red;
+  background-color: white;
+  width: 150px;
   border-radius: 10px;
-  margin: 1.2vi;
+  margin: 12px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
 
-.card-img{
+.card-img {
   width: 100%;
-  border: 0px solid red;
   border-radius: 10px;
   display: block;
 }
 
-.card-details{
+.card-details {
   position: absolute;
   z-index: 1;
   margin: 0;
-  font-size: 0.8vi;
-  font-weight: 200;
   width: 100%;
   height: 100%;
-  border: 0 solid red;
   border-radius: 10px;
-  
-  
-  color: rgba(255, 255, 255, 0);
-  background-color: rgba(255, 0, 0, 0);
-  transition-duration: 0.25s;
+  color: transparent;
+  background-color: transparent;
+  transition: all 0.25s;
+  padding: 12px;
+  box-sizing: border-box;
+  font-size: 0.9rem;
 }
 
-.card-div:hover .card-details{
-  color: rgb(255, 255, 255);
+.card-div:hover .card-details {
+  color: white;
   background-color: rgba(0, 0, 0, 0.7);
-  transition-duration: 0.25s;
 }
 
-.card-div:hover .card-img{
+.card-div:hover .card-img {
   filter: blur(4px);
-  transition-duration: 0.25s;
 }
 
-.details-backdrop{
+.details-backdrop {
   object-fit: cover;
   height: 97vh;
   width: 99vw;
@@ -130,50 +102,68 @@ body{
 
 .details-info-div {
   font-family: "Roboto Condensed";
-
   position: fixed;
-  top: 50px; /* or wherever you want it */
-  left: 50px; /* adjust as needed */
+  top: 50px;
+  left: 50px;
   z-index: 2;
-  padding: 2vh 3vw;
+  padding: 20px;
   display: inline-block;
   text-align: left;
   border-radius: 10px;
-  max-width: 40vw; /* optional: to avoid overflowing the screen */
+  max-width: 80%;
 }
 
-.details-name{
-  font-size: 4vw;
+.details-name {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin: 0;
 }
 
-.details-release-date{
-  font-size: 0.8vi;
-  margin-top: 1.2vi;
-  font-weight: 200;
-
-  font-size:calc(2px + 0.8vi);
+.details-release-date,
+.details-desc,
+.details-rating {
+  font-size: 1rem;
+  margin-top: 12px;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
-.details-desc{
-  font-size: 0.8vi;
-  margin-top: 1.2vi;
-  font-weight: 200;
-
-  font-size:calc(2px + 0.8vi);
+.details-rating {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 12px;
 }
 
-.details-rating{
-  font-size: 0.8vi;
-  margin-top: 1.2vi;
-  margin-left: 1.2vi;
-  display: inline;
-  font-weight: 200;
-
-  font-size:calc(2px + 0.8vi);
+.rating-img {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
 }
 
-.rating-img{
- max-width: 0.8vi;
- max-height: 0.8vi;
- margin-right: 4px;
+@media (max-width: 768px) {
+  .header-title {
+    height: 25vh;
+    min-height: 150px;
+  }
+
+  .card-div {
+    width: 40%;
+    margin: 8px;
+  }
+
+  .details-info-div {
+    top: 20px;
+    left: 20px;
+    padding: 12px;
+    max-width: 90%;
+  }
+
+  .details-name {
+    font-size: 1.8rem;
+  }
+
+  .details-release-date,
+  .details-desc,
+  .details-rating {
+    font-size: 0.9rem;
+  }
 }
