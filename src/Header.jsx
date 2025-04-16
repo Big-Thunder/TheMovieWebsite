@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { SearchThing } from "./SearchThing";
 
 function Header({ title, listUpdateFunction, currentListType }) {
   const headerRef = useRef();
@@ -20,13 +21,17 @@ function Header({ title, listUpdateFunction, currentListType }) {
 
   return (
     <div className="header-div" ref={headerRef}>
-      <h1 className="header-title">{title}</h1>
+      <div className="header-top-row">
+        <h1 className="header-title">{title}</h1>
+        <SearchThing />
+      </div>
       <div className="header-button-div">
         <button className={`header-button ${isActive("top_rated") ? "active" : ""}`} onClick={() => listUpdateFunction("top_rated")}>Top Rated</button>
         <button className={`header-button ${isActive("popular") ? "active" : ""}`} onClick={() => listUpdateFunction("popular")}>Popular</button>
         <button className={`header-button ${isActive("upcoming") ? "active" : ""}`} onClick={() => listUpdateFunction("upcoming")}>Upcoming</button>
       </div>
     </div>
+
   );
 }
 

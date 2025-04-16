@@ -11,9 +11,18 @@ body {
   margin: 0px;
 }
 
+.header-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 3vw 0 3vw;
+}
+
+
 .header-title{
   font-size: 3vi;
   margin-top: 0vh;
+  margin-bottom: 1vh;
   margin-left: 3vw;
 }
 
@@ -29,6 +38,7 @@ body {
   font-weight: 300;
   background-color: none;
 }
+  */
 
 .header-button-div {
   background: rgb(0, 0, 0);
@@ -36,14 +46,18 @@ body {
   border-radius: 24px;
   display: inline-flex;
   flex-direction: row;
+  margin-left: 7vh;
+  margin-top: 0vh;
   transition: all 500ms ease;
 }
 
 
 .header-button{
   border-radius: 22px;
-  height: 44px;
-  width: 88px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 2.2vh;
+  padding-right: 2.2vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,21 +67,21 @@ body {
   color: white;
   cursor: pointer;
   transition: all 0.5s ease;
-  font-size: 1rem;
+  font-size: 1dvh;
 }
 
 .header-button.active {
   box-shadow: inset 0 0 1px 100px rgb(255, 255, 255);
   color: black;
   box-shadow: inset 0px 0px 1px 100px rgb(255, 255, 255);
-} */
+} 
 
 .card-div {
   position: relative;
   background-color: white;
-  width: 150px;
+  width: 10rem;
   border-radius: 10px;
-  margin: 12px;
+  margin: 1.2rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -101,6 +115,37 @@ body {
 
 .card-div:hover .card-img {
   filter: blur(4px);
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* adjust the spacing as needed */
+}
+
+
+.search-input{
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px rgb(255, 255, 255) solid;
+  width: 30vh;
+  height: 2vh;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  margin: 0px;
+}
+
+.search-input:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+.search-icon{
+  width: 30px;
+  height: 30px;
+  margin: 0px;
+  margin-bottom: 10px;
 }
 
 .details-backdrop {
