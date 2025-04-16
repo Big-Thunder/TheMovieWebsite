@@ -10,8 +10,17 @@ body{
 
 .header-div{
   background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8)), url(./assets/movie_collage.png);
+  text-align: left;
+  margin: 0px;
 }
 
+.header-title{
+  font-size: 3vi;
+  margin-top: 0vh;
+  margin-left: 3vw;
+}
+
+/*
 .header-title{
   height: 30vh;
   margin: 0px;
@@ -21,7 +30,6 @@ body{
   font-size: 12vi;
   font-weight: 300;
   background-color: none;
-  /* background-image: linear-gradient(rgba(70, 196, 255, 0.45), rgba(0, 0, 0, 0)); */
 }
 
 .header-button-div{
@@ -38,17 +46,6 @@ body{
 
 
 .header-button{
-  /* background-color: rgba(0, 0, 0, 0);
-  border: 0px;
-  padding: 0.5vi;
-  padding-left: 0px;
-  padding-right: 0px;
-  font-size: 1.5vi;
-  border-radius: 10vi;
-  margin-left: 1vi;
-  margin-right: 1vi;
-  color: rgb(141, 141, 141); */
-
   border-radius: 22px;
   height: 44px;
   display: flex;
@@ -69,9 +66,8 @@ body{
 
 .header-button.active{
   color: black;
-  /* border: solid 1px red; */
   box-shadow: inset 0px 0px 1px 100px rgb(255, 255, 255);
-}
+} */
 
 .card-div{
   position: relative;
