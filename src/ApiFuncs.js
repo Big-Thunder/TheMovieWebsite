@@ -1,15 +1,17 @@
+
 import axios from "axios";
 
-const API_KEY = import.meta.env.VITE_APP_TMDB_API_KEY;
-const BASE_URL = "https://api.themoviedb.org/3";
-const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"; // For movie posters
+const BASE_URL = "https://tmdb-api-proxy.iamshubham2040.workers.dev/3";
+const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
+
+const tmdb = axios.create({
+  baseURL: BASE_URL,
+});
 
 // Fetch top-rated movies
 export const fetchTopRatedMovies = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/movie/top_rated`, {
-      params: { api_key: API_KEY },
-    });
+    const response = await tmdb.get("/movie/top_rated");
     return response.data.results;
   } catch (error) {
     console.error("Error fetching top-rated movies:", error);
@@ -20,9 +22,7 @@ export const fetchTopRatedMovies = async () => {
 // Fetch popular movies
 export const fetchPopularMovies = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/movie/popular`, {
-      params: { api_key: API_KEY },
-    });
+    const response = await tmdb.get("/movie/popular");
     return response.data.results;
   } catch (error) {
     console.error("Error fetching popular movies:", error);
@@ -30,16 +30,41 @@ export const fetchPopularMovies = async () => {
   }
 };
 
-export const fetchCurrentList = async(list, page) => {
+// Fetch a specific movie list
+export const fetchCurrentList = async (list, page) => {
   try {
-    const response = await axios.get(`${BASE_URL}/movie/${list}`, {
-      params: { api_key: API_KEY, page: page },
+    const response = await tmdb.get(`/movie/${list}`, {
+      params: { page },
     });
     return response.data.results;
   } catch (error) {
     console.error("Error fetching movies:", error);
     return [];
   }
-}
+};
+
+// Fetch individual movie details
+export const fetchMovieDetails = async (id) => {
+  try {
+    const response = await tmdb.get(`/movie/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching movie details:", error);
+    return null;
+  }
+};
+
+// Search movies
+export const searchMovies = async (query) => {
+  try {
+    const response = await tmdb.get("/search/movie", {
+      params: { query },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error("Error searching movies:", error);
+    return [];
+  }
+};
 
 export { IMAGE_BASE_URL };
